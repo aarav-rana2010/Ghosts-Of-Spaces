@@ -1,0 +1,721 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the forgotten machines left behind on the Moon and Mars. Discover their stories and scientific legacy.">
+    <title>Ghosts of Space | Their Missions Ended. Their Stories Didn't.</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- CINEMATIC LOADING SCREEN -->
+<div id="loadingScreen">
+
+    <div class="loading-stars"></div>
+
+    <div class="loading-content">
+
+        <div class="loading-symbol">✦</div>
+
+        <h1>GHOSTS <span>OF SPACE</span></h1>
+
+        <p>THEIR MISSIONS ENDED. THEIR STORIES DIDN'T.</p>
+
+        <div class="loading-line">
+            <div class="loading-progress"></div>
+        </div>
+
+        <span class="loading-text">INITIALIZING MISSION ARCHIVE...</span>
+
+    </div>
+
+</div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#home" class="logo">
+            <span class="logo-icon">✦</span>
+            GHOSTS <span>OF SPACE</span>
+        </a>
+
+        <div class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#explore">Explore</a>
+            <a href="#missions">Discover</a>
+            <a href="opportunity.html">Opportunity Maker</a>
+            <a href="about.html">About</a>
+        </div>
+
+        <a href="#explore" class="nav-button">Begin Exploration ↗</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <div class="eyebrow">
+                <span class="live-dot"></span>
+                A JOURNEY THROUGH FORGOTTEN SPACE HISTORY
+            </div>
+
+            <h1>
+                THEY LEFT<br>
+                THE <span>WORLD.</span><br>
+                NOT THE STORY.
+            </h1>
+
+            <p class="hero-description">
+                Across the silent landscapes of the Moon and Mars,
+                machines once built to explore still remain.
+                Discover the extraordinary stories behind humanity's
+                forgotten space explorers.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#explore" class="primary-button">Explore the Unknown ↗</a>
+                <a href="#missions" class="secondary-button">Discover Their Stories</a>
+            </div>
+
+            <div class="hero-stats">
+
+                <div>
+                    <strong class="count-up" data-target="2">0</strong>
+                    <span>WORLDS EXPLORED</span>
+                </div>
+            
+                <div>
+                    <strong class="count-up" data-target="8">0</strong>
+                    <span>FEATURED MACHINES</span>
+                </div>
+            
+                <div>
+                    <strong class="count-up" data-target="5">0</strong>
+                    <span>MISSION ARCHIVES</span>
+                </div>
+            
+            </div>
+
+            </div>
+
+        <div class="hero-visual">
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+            <div class="planet">
+                <div class="planet-crater crater-one"></div>
+                <div class="planet-crater crater-two"></div>
+                <div class="planet-crater crater-three"></div>
+            </div>
+            <div class="planet-label">
+                <span>MISSION STATUS</span>
+                <strong>STORIES PRESERVED</strong>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">SCROLL TO EXPLORE ↓</div>
+    </header>
+
+    <!-- Introduction -->
+    <section class="intro-section" id="about">
+        <div class="section-label">01 / THE IDEA</div>
+        <h2>THEY WERE NEVER<br>JUST MACHINES.</h2>
+        <p>
+            They traveled millions of kilometers, survived hostile
+            environments and expanded humanity's understanding of
+            the universe. Some completed their missions. Others fell
+            silent. But every machine left behind a scientific legacy.
+        </p>
+        <p class="intro-highlight">
+            We believe their stories deserve to be remembered.
+        </p>
+    </section>
+
+    <!-- Explore Worlds -->
+    <section class="explore-section" id="explore">
+        <div class="section-heading">
+            <div>
+                <div class="section-label">02 / CHOOSE YOUR DESTINATION</div>
+                <h2>EXPLORE THE<br>FORGOTTEN WORLDS.</h2>
+            </div>
+            <p>Two worlds. Countless stories. One extraordinary journey.</p>
+        </div>
+
+        <div class="world-grid">
+
+            <article class="world-card moon-card">
+                <div class="world-art moon-art">
+                    <span class="world-symbol">☾</span>
+                    <span class="world-coordinate">01 /  MOON</span>
+                </div>
+                <div class="world-info">
+                    <span class="world-tag">EARTH'S NATURAL SATELLITE</span>
+                    <h3>THE MOON</h3>
+                    <p>Discover the machines left behind by humanity's
+                       first explorers of another world.</p>
+                    <a href="#planet-explorer" class="text-link">Explore lunar missions ↗</a>
+                </div>
+            </article>
+
+            <article class="world-card mars-card">
+                <div class="world-art mars-art">
+                    <span class="world-symbol">♂</span>
+                    <span class="world-coordinate">02 / MARS</span>
+                </div>
+                <div class="world-info">
+                    <span class="world-tag">THE RED PLANET</span>
+                    <h3>MARS</h3>
+                    <p>Meet the robotic explorers that crossed the
+                       Martian surface and changed planetary science.</p>
+                    <a href="#planet-explorer" class="text-link">Explore Martian missions ↗</a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+<!-- INTERACTIVE PLANETARY EXPLORER -->
+
+<section class="planet-explorer" id="planet-explorer">
+
+    <div class="section-label">03 / INTERACTIVE MISSION ATLAS</div>
+
+    <div class="section-heading">
+        <div>
+            <h2>THE UNIVERSE<br>IS YOURS TO EXPLORE.</h2>
+        </div>
+        <p>Travel across planetary surfaces. Find the machines
+           humanity left behind.</p>
+    </div>
+
+    <div class="explorer-container">
+
+        <div class="explorer-topbar">
+            <div>
+                <span class="explorer-small-label">CURRENT DESTINATION</span>
+                <h3 id="planetName">THE MOON</h3>
+            </div>
+
+            <div class="planet-switch">
+                <button class="planet-btn active" data-planet="moon">
+                    ☾ MOON
+                </button>
+                <button class="planet-btn" data-planet="mars">
+                    ♂ MARS
+                </button>
+            </div>
+        </div>
+
+        <div class="map-layout">
+
+            <div class="map-wrapper">
+                <div id="planetMap"></div>
+
+                <div class="map-overlay">
+                    <span class="live-dot"></span>
+                    PLANETARY SURFACE ATLAS
+                </div>
+            </div>
+
+            <aside class="mission-panel">
+
+                <span class="explorer-small-label">
+                    SELECTED MISSION
+                </span>
+
+                <div id="missionDetails">
+
+                    <div class="empty-state-icon">✦</div>
+
+                    <h3>THE SURFACE AWAITS</h3>
+
+                    <p>
+                        Select a highlighted mission marker on the map
+                        to discover the equipment, its history and
+                        its scientific legacy.
+                    </p>
+
+                </div>
+
+                <div class="mission-legend">
+                    <span class="legend-dot"></span>
+                    DOCUMENTED MISSION LOCATION
+                </div>
+
+            </aside>
+
+        </div>
+
+        <div class="map-footer">
+            <span>MAP DATA: OPENPLANETARYMAP</span>
+            <span>MISSION MARKERS: APPROXIMATE LOCATIONS</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+    <!-- Featured Machines -->
+    <section class="missions-section" id="missions">
+        <div class="section-label">03 / THE EXPLORERS</div>
+        <div class="section-heading">
+            <h2>MEET THE<br>FORGOTTEN.</h2>
+            <p>Every machine has a mission. Every mission has a story.</p>
+        </div>
+
+        <div class="machine-grid">
+
+            <article class="machine-card">
+                <div class="machine-number">01</div>
+                <div class="machine-icon">☾</div>
+                <span class="machine-location">MOON · APOLLO 17</span>
+                <h3>Lunar Roving Vehicle</h3>
+                <p>The electric rover that helped Apollo astronauts
+                   travel across the lunar surface.</p>
+                   <a href="lrv.html" class="story-button">READ ITS STORY ↗</a>
+            </article>
+
+            <article class="machine-card">
+                <div class="machine-number">02</div>
+                <div class="machine-icon">◉</div>
+                <span class="machine-location">MOON · APOLLO 12</span>
+                <h3>Surveyor 3</h3>
+                <p>A robotic lunar lander later visited by Apollo 12
+                   astronauts.</p>
+                   <a href="surveyor.html" class="story-button">READ ITS STORY ↗</a>
+            </article>
+
+            <article class="machine-card">
+                <div class="machine-number">03</div>
+                <div class="machine-icon">✦</div>
+                <span class="machine-location">MARS · 1997</span>
+                <h3>Sojourner</h3>
+                <p>A tiny rover that opened a new chapter in
+                   robotic exploration of Mars.</p>
+                   <a href="sojourner.html" class="story-button">READ ITS STORY ↗</a>
+            </article>
+
+            <article class="machine-card">
+                <div class="machine-number">04</div>
+                <div class="machine-icon">◎</div>
+                <span class="machine-location">MARS · 2004</span>
+                <h3>Spirit</h3>
+                <p>A rover that explored Mars for years before
+                   becoming trapped in soft soil.</p>
+                   <a href="spirit.html" class="story-button">READ ITS STORY ↗</a>
+            </article>
+
+            <article class="machine-card">
+                <div class="machine-number">05</div>
+                <div class="machine-icon">✧</div>
+                <span class="machine-location">MARS · 2004</span>
+                <h3>Opportunity</h3>
+                <p>A rover whose extraordinary mission lasted
+                   almost fifteen years.</p>
+                   <a href="opportunity.html" class="story-button">READ ITS STORY ↗</a>
+            </article>
+
+            <article class="machine-card">
+                <div class="machine-number">06</div>
+                <div class="machine-icon">✈</div>
+                <span class="machine-location">MARS · 2021</span>
+                <h3>Ingenuity</h3>
+                <p>The helicopter that demonstrated powered,
+                   controlled flight on another planet.</p>
+                   <a href="https://science.nasa.gov/mission/mars-2020-perseverance/ingenuity/" class="story-button" target="_blank" rel="noopener noreferrer">READ ITS STORY ↗</a>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- STAGE 4.2 - NUMBERS BEHIND THE LEGACY -->
+
+    <section class="discovery-stats reveal-section">
+
+    <div class="section-label">04 / THE NUMBERS BEHIND THE LEGACY</div>
+
+    <div class="discovery-heading">
+        <h2>EXPLORATION<br>BEYOND EARTH.</h2>
+        <p>
+            Every journey left behind more than footprints.
+            It left evidence of how far humanity can go.
+        </p>
+    </div>
+
+    <div class="discovery-grid">
+
+        <div class="discovery-card">
+            <span class="discovery-icon">☾</span>
+            <strong>03</strong>
+            <h3>LUNAR ROVERS</h3>
+            <p>Apollo 15, 16 and 17 carried humans across the Moon.</p>
+        </div>
+
+        <div class="discovery-card">
+            <span class="discovery-icon">♂</span>
+            <strong>04</strong>
+            <h3>MARTIAN EXPLORERS</h3>
+            <p>Four featured robotic explorers in our collection.</p>
+        </div>
+
+        <div class="discovery-card">
+            <span class="discovery-icon">∞</span>
+            <strong>01</strong>
+            <h3>SHARED PURPOSE</h3>
+            <p>One extraordinary human ambition: explore the unknown.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- STAGE 4.3 - DISCOVERIES THAT CHANGED EVERYTHING -->
+
+<section class="discoveries-section reveal-section" id="discoveries"> </section>
+
+    <div class="section-label">05 / SCIENCE BEYOND EARTH</div>
+
+    <div class="discoveries-heading">
+        <h2>DISCOVERIES<br>THAT CHANGED EVERYTHING.</h2>
+
+        <p>
+            These machines did more than explore distant worlds.
+            They revealed clues about the history of the Moon and Mars.
+        </p>
+    </div>
+
+    <div class="discoveries-grid">
+
+        <!-- LUNAR ROVING VEHICLE -->
+        <article class="discovery-card">
+            <div class="discovery-top">
+                <span>01 / THE MOON</span>
+                <span>☾</span>
+            </div>
+
+            <div class="discovery-symbol">🚀</div>
+
+            <h3>EXPLORING FURTHER</h3>
+
+            <p>
+                The Lunar Roving Vehicle allowed Apollo astronauts
+                to travel farther across the lunar surface, examine
+                geological formations and collect more samples.
+            </p>
+
+            <a href="lrv.html" class="discovery-link">
+                EXPLORE THE ROVER ↗
+            </a>
+        </article>
+
+
+        <!-- SURVEYOR 3 -->
+        <article class="discovery-card">
+            <div class="discovery-top">
+                <span>02 / THE MOON</span>
+                <span>☾</span>
+            </div>
+
+            <div class="discovery-symbol">◉</div>
+
+            <h3>THE SPACECRAFT THAT CAME BACK</h3>
+
+            <p>
+                Apollo 12 astronauts visited Surveyor 3 and brought
+                back parts of the spacecraft. Scientists studied
+                how lunar exposure affected its equipment.
+            </p>
+
+            <a href="surveyor.html" class="discovery-link">
+                EXPLORE SURVEYOR 3 ↗
+            </a>
+        </article>
+
+
+        <!-- SOJOURNER -->
+        <article class="discovery-card">
+            <div class="discovery-top">
+                <span>03 / MARS</span>
+                <span>♂</span>
+            </div>
+
+            <div class="discovery-symbol">✦</div>
+
+            <h3>A SMALL ROVER, A BIG BEGINNING</h3>
+
+            <p>
+                Sojourner examined Martian rocks and soil,
+                demonstrating that mobile robotic exploration
+                could work on another planet.
+            </p>
+
+            <a href="sojourner.html" class="discovery-link">
+                EXPLORE SOJOURNER ↗
+            </a>
+        </article>
+
+
+        <!-- SPIRIT -->
+        <article class="discovery-card">
+            <div class="discovery-top">
+                <span>04 / MARS</span>
+                <span>♂</span>
+            </div>
+
+            <div class="discovery-symbol">◎</div>
+
+            <h3>CLUES OF ANCIENT HOT SPRINGS</h3>
+
+            <p>
+                Spirit discovered silica-rich deposits near Home Plate.
+                These provided compelling evidence of ancient
+                hydrothermal activity on Mars.
+            </p>
+
+            <a href="spirit.html" class="discovery-link">
+                EXPLORE SPIRIT ↗
+            </a>
+        </article>
+
+
+        <!-- OPPORTUNITY -->
+        <article class="discovery-card">
+            <div class="discovery-top">
+                <span>05 / MARS</span>
+                <span>♂</span>
+            </div>
+
+            <div class="discovery-symbol">✧</div>
+
+            <h3>THE STORY OF MARTIAN WATER</h3>
+
+            <p>
+                Opportunity studied hematite-rich spherical formations,
+                providing evidence that liquid water once interacted
+                with rocks on ancient Mars.
+            </p>
+
+            <a href="opportunity.html" class="discovery-link">
+                EXPLORE OPPORTUNITY ↗
+            </a>
+        </article>
+
+    </div>
+
+    <div class="discoveries-footer">
+        FIVE MACHINES. COUNTLESS DISCOVERIES. ONE UNIVERSE.
+    </div>
+
+</section>
+
+<!-- STAGE 4.4 - NASA RESEARCH LIBRARY -->
+
+<section class="research-section reveal-section" id="research"> </section>
+
+    <div class="section-label">06 / THE RESEARCH LIBRARY</div>
+
+    <div class="research-heading">
+        <h2>BEYOND THE STORY.<br>INTO THE SCIENCE.</h2>
+
+        <p>
+            Explore official mission records, scientific discoveries
+            and historical documents from NASA and its research centres.
+        </p>
+    </div>
+
+    <div class="research-grid">
+
+        <!-- APOLLO LUNAR ROVING VEHICLE -->
+        <article class="research-card">
+            <span class="research-number">01 / LUNAR EXPLORATION</span>
+            <div class="research-icon">☾</div>
+            <h3>APOLLO LUNAR SURFACE JOURNAL</h3>
+            <p>
+                Explore Apollo mission transcripts, photographs
+                and records documenting human exploration of the Moon.
+            </p>
+            <a href="https://www.nasa.gov/history/alsj/"
+               target="_blank" rel="noopener noreferrer">
+                ACCESS NASA ARCHIVE ↗
+            </a>
+        </article>
+
+        <!-- SURVEYOR 3 -->
+        <article class="research-card">
+            <span class="research-number">02 / LUNAR EXPLORATION</span>
+            <div class="research-icon">◉</div>
+            <h3>SURVEYOR 3 MISSION RECORD</h3>
+            <p>
+                Access NASA's spacecraft catalogue entry and
+                historical information about Surveyor 3.
+            </p>
+            <a href="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1967-084A"
+               target="_blank" rel="noopener noreferrer">
+                ACCESS NASA RECORD ↗
+            </a>
+        </article>
+
+        <!-- SOJOURNER -->
+        <article class="research-card">
+            <span class="research-number">03 / MARTIAN EXPLORATION</span>
+            <div class="research-icon">♂</div>
+            <h3>MARS PATHFINDER</h3>
+            <p>
+                Discover the mission that delivered the Sojourner rover
+                and demonstrated a new way to explore Mars.
+            </p>
+            <a href="https://science.nasa.gov/mission/mars-pathfinder/"
+               target="_blank" rel="noopener noreferrer">
+                EXPLORE NASA MISSION ↗
+            </a>
+        </article>
+
+        <!-- SPIRIT AND OPPORTUNITY -->
+        <article class="research-card">
+            <span class="research-number">04 / MARTIAN EXPLORATION</span>
+            <div class="research-icon">✦</div>
+            <h3>SPIRIT & OPPORTUNITY</h3>
+            <p>
+                Explore NASA's Mars Exploration Rover mission and
+                the scientific legacy of its two robotic explorers.
+            </p>
+            <a href="https://science.nasa.gov/mission/mars-exploration-rovers-spirit-and-opportunity/"
+               target="_blank" rel="noopener noreferrer">
+                EXPLORE NASA MISSION ↗
+            </a>
+        </article>
+
+    </div>
+
+    <div class="research-footer">
+        EVERY DISCOVERY HAS A STORY. EVERY STORY HAS EVIDENCE.
+    </div>
+
+</section>
+
+<!-- STAGE 4.4 - MISSION RESEARCH LIBRARY -->
+
+<section class="research-section" id="research">
+
+    <div class="section-label">06 / EXPLORE THE EVIDENCE</div>
+
+    <div class="research-heading">
+        <h2>BEYOND THE<br>STORY. INTO THE SCIENCE.</h2>
+
+        <p>
+            Every discovery has a story backed by evidence.
+            Explore the official sources behind our mission archives.
+        </p>
+    </div>
+
+    <div class="research-grid">
+
+        <!-- APOLLO -->
+        <article class="research-card">
+            <span class="research-category">THE MOON / HUMAN EXPLORATION</span>
+            <div class="research-icon">☾</div>
+            <h3>APOLLO 17</h3>
+            <p>
+                Explore NASA's final crewed Apollo lunar landing,
+                its astronauts, experiments and lunar rover.
+            </p>
+            <a href="https://science.nasa.gov/mission/apollo-17/"
+               target="_blank" rel="noopener noreferrer">
+                NASA MISSION ARCHIVE ↗
+            </a>
+        </article>
+
+        <!-- SURVEYOR -->
+        <article class="research-card">
+            <span class="research-category">THE MOON / ROBOTIC EXPLORATION</span>
+            <div class="research-icon">◉</div>
+            <h3>SURVEYOR PROGRAM</h3>
+            <p>
+                Discover how robotic spacecraft helped prepare
+                for human exploration of the lunar surface.
+            </p>
+            <a href="https://science.nasa.gov/moon/"
+               target="_blank" rel="noopener noreferrer">
+                NASA MOON RESEARCH ↗
+            </a>
+        </article>
+
+        <!-- MARS PATHFINDER -->
+        <article class="research-card">
+            <span class="research-category">MARS / FIRST GENERATION</span>
+            <div class="research-icon">✦</div>
+            <h3>MARS PATHFINDER</h3>
+            <p>
+                Learn about the mission that delivered the
+                Sojourner rover to the Martian surface in 1997.
+            </p>
+            <a href="https://science.nasa.gov/mission/mars-pathfinder/"
+               target="_blank" rel="noopener noreferrer">
+                NASA MISSION ARCHIVE ↗
+            </a>
+        </article>
+
+        <!-- MARS EXPLORATION ROVERS -->
+        <article class="research-card">
+            <span class="research-category">MARS / SCIENTIFIC DISCOVERIES</span>
+            <div class="research-icon">♂</div>
+            <h3>SPIRIT & OPPORTUNITY</h3>
+            <p>
+                Read about the twin Mars Exploration Rovers
+                and their discoveries about ancient Martian water.
+            </p>
+            <a href="https://science.nasa.gov/mission/mars-exploration-rovers/"
+               target="_blank" rel="noopener noreferrer">
+                NASA MISSION ARCHIVE ↗
+            </a>
+        </article>
+
+    </div>
+
+    <div class="research-note">
+        ALL RESEARCH LINKS LEAD TO NASA'S OFFICIAL WEBSITE.
+    </div>
+
+</section>
+
+    <!-- Legacy Section -->
+    <section class="legacy-section">
+        <div class="section-label">04 / THE BIGGER PICTURE</div>
+        <h2>THE MISSION ENDS.<br>THE <span>DISCOVERY</span> DOESN'T.</h2>
+        <p>
+            A machine may stop moving. Its discoveries continue
+            to shape our understanding of other worlds.
+        </p>
+        <a href="#missions" class="primary-button">Discover Their Legacy ↗</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <a href="#home" class="logo">✦ GHOSTS <span>OF SPACE</span></a>
+        <p>Remembering the explorers we left behind.</p>
+        <p class="footer-note">
+            An educational storytelling project. Mission information
+            should be verified against official NASA sources.
+        </p>
+        <span>© 2026 GHOSTS OF SPACE</span>
+    </footer>
+
+    <!-- Story Modal -->
+    <div class="modal" id="storyModal" aria-hidden="true">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+            <span class="section-label">MISSION ARCHIVE</span>
+            <h2 id="modalTitle">Machine name</h2>
+            <p id="modalText">Machine story</p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

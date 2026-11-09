@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surveyor 3 | Ghosts of Space</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            margin: 0;
+            background: #090d16;
+            color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+
+        .surveyor-hero {
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+            padding: 60px 9%;
+            background:
+                linear-gradient(90deg, rgba(5,9,17,.95), rgba(5,9,17,.25)),
+                url("https://images-assets.nasa.gov/image/AS12-48-7134/AS12-48-7134~orig.jpg")
+                center/cover;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .eyebrow {
+            color: #e8bd82;
+            font-size: 13px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: clamp(48px, 8vw, 90px);
+            margin: 18px 0;
+        }
+
+        .hero-content p {
+            color: #d0d5df;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .archive-section {
+            padding: 75px 9%;
+        }
+
+        .archive-section h2 {
+            font-size: 34px;
+            margin-bottom: 20px;
+        }
+
+        .archive-section p {
+            color: #c2c8d3;
+            line-height: 1.9;
+            font-size: 16px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 18px;
+            margin-top: 35px;
+        }
+
+        .stat-card {
+            background: #151d2b;
+            border: 1px solid #29364b;
+            padding: 24px;
+            border-radius: 12px;
+        }
+
+        .stat-card h3 {
+            color: #e8bd82;
+            font-size: 27px;
+            margin: 0 0 10px;
+        }
+
+        .stat-card p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .timeline {
+            border-left: 2px solid #e8bd82;
+            margin: 35px 0 0 10px;
+            padding-left: 28px;
+        }
+
+        .timeline-item {
+            margin-bottom: 35px;
+        }
+
+        .timeline-item h3 {
+            color: #e8bd82;
+        }
+
+        .discovery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .discovery-card {
+            background: #151d2b;
+            border: 1px solid #29364b;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .discovery-card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+        }
+
+        .discovery-card div {
+            padding: 20px;
+        }
+
+        .discovery-card h3 {
+            color: #e8bd82;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: #e8bd82;
+            text-decoration: none;
+            border: 1px solid #e8bd82;
+            padding: 12px 22px;
+            border-radius: 25px;
+        }
+
+        .back-link:hover {
+            background: #e8bd82;
+            color: #090d16;
+        }
+
+        .archive-footer {
+            text-align: center;
+            padding: 35px 15px;
+            background: #060910;
+            color: #8993a5;
+        }
+
+        @media(max-width: 600px) {
+            .surveyor-hero {
+                padding: 50px 7%;
+                min-height: 65vh;
+            }
+
+            .archive-section {
+                padding: 55px 7%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="surveyor-hero">
+        <div class="hero-content">
+            <span class="eyebrow">Lunar Exploration Archive · 1967</span>
+            <h1>SURVEYOR 3</h1>
+            <p>
+                A robotic pioneer that landed on the Moon,
+                investigated its surface, and later became
+                the destination of an Apollo astronaut visit.
+            </p>
+            <a href="#mission" class="back-link">Explore the Mission ↓</a>
+        </div>
+    </header>
+
+    <section class="archive-section" id="mission">
+        <span class="eyebrow">The Mission</span>
+        <h2>The Robot That Met the Astronauts</h2>
+        <p>
+            Surveyor 3 was an uncrewed NASA lunar lander launched
+            on April 17, 1967. It successfully landed in the Ocean
+            of Storms on April 20, 1967. The spacecraft studied
+            lunar soil and photographed the surface, helping
+            prepare for future crewed Apollo landings.
+        </p>
+
+        <div class="stats">
+            <div class="stat-card">
+                <h3>1967</h3>
+                <p>Year of landing</p>
+            </div>
+            <div class="stat-card">
+                <h3>2,000+</h3>
+                <p>Images transmitted</p>
+            </div>
+            <div class="stat-card">
+                <h3>2.5 years</h3>
+                <p>Before Apollo 12 visited the site</p>
+            </div>
+            <div class="stat-card">
+                <h3>November 1969</h3>
+                <p>Apollo 12 astronaut visit</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="archive-section">
+        <span class="eyebrow">Mission Timeline</span>
+        <h2>From Earth to the Moon</h2>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>April 17, 1967 — Launch</h3>
+                <p>Surveyor 3 launched from Cape Kennedy aboard an Atlas-Centaur rocket.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>April 20, 1967 — Lunar Landing</h3>
+                <p>The spacecraft landed in the Ocean of Storms and began transmitting images.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>1967 — Surface Experiments</h3>
+                <p>Its surface sampler investigated the mechanical properties of lunar soil.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>November 19, 1969 — Apollo 12</h3>
+                <p>Astronauts Pete Conrad and Alan Bean landed nearby and visited Surveyor 3.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>November 1969 — Historic Retrieval</h3>
+                <p>The astronauts removed selected components, including the television camera, and returned them to Earth for examination.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="archive-section">
+        <span class="eyebrow">Scientific Legacy</span>
+        <h2>What Surveyor 3 Achieved</h2>
+
+        <div class="discovery-grid">
+            <article class="discovery-card">
+                <img src="https://images-assets.nasa.gov/image/AS12-48-7134/AS12-48-7134~orig.jpg" alt="Surveyor 3 on the lunar surface">
+                <div>
+                    <h3>Lunar Soil Investigation</h3>
+                    <p>Its surface sampler helped scientists study the strength and physical properties of lunar soil.</p>
+                </div>
+            </article>
+
+            <article class="discovery-card">
+                <img src="https://assets.science.nasa.gov/dynamicimage/assets/science/psd/lunar-science/2023/09/as12-48-7121_orig.jpg" alt="Apollo 12 astronaut near Surveyor 3">
+                <div>
+                    <h3>Apollo 12 Visit</h3>
+                    <p>Apollo 12 astronauts examined the lander and retrieved components for scientific analysis back on Earth.</p>
+                </div>
+            </article>
+
+            <article class="discovery-card">
+                <img src="https://assets.science.nasa.gov/dynamicimage/assets/science/psd/solar/2023/09/a/as12-48-7134.jpg">
+                <div>
+                    <h3>Preparing for Apollo</h3>
+                    <p>Surveyor missions provided valuable information about lunar landing conditions and surface materials.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="archive-section">
+        <span class="eyebrow">Beyond the Mission</span>
+        <h2>A Meeting Across Two Generations</h2>
+        <p>
+            Surveyor 3 became part of one of the most remarkable
+            moments in space exploration: a robotic spacecraft
+            landed on the Moon in 1967, and astronauts visited
+            it in 1969. Its mission helped build confidence in
+            the technology and knowledge needed for human lunar exploration.
+        </p>
+
+        <a href="index.html" class="back-link">← Return to Ghosts of Space</a>
+    </section>
+
+    <footer class="archive-footer">
+        <p>GHOSTS OF SPACE · Exploring the machines that explored our universe.</p>
+        <p>Mission information: NASA Surveyor and Apollo 12 mission archives.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sojourner | Ghosts of Space</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            margin: 0;
+            background: #090d16;
+            color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+
+        .sojourner-hero {
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+            padding: 60px 9%;
+            background:
+                linear-gradient(90deg, rgba(5,9,17,.95), rgba(5,9,17,.25)),
+                url("https://images-assets.nasa.gov/image/PIA01141/PIA01141~orig.jpg")
+                center/cover;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .eyebrow {
+            color: #e8a477;
+            font-size: 13px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: clamp(48px, 8vw, 90px);
+            margin: 18px 0;
+        }
+
+        .hero-content p {
+            color: #d0d5df;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .archive-section {
+            padding: 75px 9%;
+        }
+
+        .archive-section h2 {
+            font-size: 34px;
+            margin-bottom: 20px;
+        }
+
+        .archive-section p {
+            color: #c2c8d3;
+            line-height: 1.9;
+            font-size: 16px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 18px;
+            margin-top: 35px;
+        }
+
+        .stat-card {
+            background: #151d2b;
+            border: 1px solid #29364b;
+            padding: 24px;
+            border-radius: 12px;
+        }
+
+        .stat-card h3 {
+            color: #e8a477;
+            font-size: 27px;
+            margin: 0 0 10px;
+        }
+
+        .stat-card p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .timeline {
+            border-left: 2px solid #e8a477;
+            margin: 35px 0 0 10px;
+            padding-left: 28px;
+        }
+
+        .timeline-item {
+            margin-bottom: 35px;
+        }
+
+        .timeline-item h3 {
+            color: #e8a477;
+        }
+
+        .discovery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .discovery-card {
+            background: #151d2b;
+            border: 1px solid #29364b;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .discovery-card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+        }
+
+        .discovery-card div {
+            padding: 20px;
+        }
+
+        .discovery-card h3 {
+            color: #e8a477;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: #e8a477;
+            text-decoration: none;
+            border: 1px solid #e8a477;
+            padding: 12px 22px;
+            border-radius: 25px;
+        }
+
+        .back-link:hover {
+            background: #e8a477;
+            color: #090d16;
+        }
+
+        .archive-footer {
+            text-align: center;
+            padding: 35px 15px;
+            background: #060910;
+            color: #8993a5;
+        }
+
+        @media(max-width: 600px) {
+            .sojourner-hero {
+                padding: 50px 7%;
+                min-height: 65vh;
+            }
+
+            .archive-section {
+                padding: 55px 7%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="sojourner-hero">
+        <div class="hero-content">
+            <span class="eyebrow">Mars Pathfinder Archive · 1997</span>
+            <h1>SOJOURNER</h1>
+            <p>
+                Small in size. Massive in history.
+                Sojourner became the first successful wheeled rover
+                to operate on another planet, opening a new chapter
+                in robotic exploration.
+            </p>
+            <a href="#mission" class="back-link">Explore the Mission ↓</a>
+        </div>
+    </header>
+
+    <section class="archive-section" id="mission">
+        <span class="eyebrow">The Mission</span>
+        <h2>The Little Rover That Made History</h2>
+        <p>
+            Sojourner was part of NASA's Mars Pathfinder mission.
+            It landed on Mars on July 4, 1997, inside Ares Vallis.
+            The rover examined nearby rocks and soil, tested robotic
+            mobility, and demonstrated a new way to explore another planet.
+        </p>
+
+        <div class="stats">
+            <div class="stat-card">
+                <h3>1997</h3>
+                <p>Year of landing</p>
+            </div>
+            <div class="stat-card">
+                <h3>10.6 kg</h3>
+                <p>Approximate rover mass</p>
+            </div>
+            <div class="stat-card">
+                <h3>83 days</h3>
+                <p>Operational period on Mars</p>
+            </div>
+            <div class="stat-card">
+                <h3>100 m+</h3>
+                <p>Approximate distance travelled</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="archive-section">
+        <span class="eyebrow">Mission Timeline</span>
+        <h2>From Earth to Ares Vallis</h2>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>December 4, 1996 — Launch</h3>
+                <p>Mars Pathfinder launched aboard a Delta II rocket.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>July 4, 1997 — Landing</h3>
+                <p>The Pathfinder lander touched down in Ares Vallis, carrying Sojourner to the Martian surface.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>July 1997 — First Exploration</h3>
+                <p>Sojourner began examining rocks and soil around its landing site.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>August 1997 — Extended Operations</h3>
+                <p>The rover continued its scientific work beyond its original planned mission duration.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>September 27, 1997 — Final Contact</h3>
+                <p>NASA received the final successful communication from the Pathfinder lander and Sojourner mission.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="archive-section">
+        <span class="eyebrow">Scientific Legacy</span>
+        <h2>What Sojourner Achieved</h2>
+
+        <div class="discovery-grid">
+            <article class="discovery-card">
+                <img src="https://images-assets.nasa.gov/image/PIA01141/PIA01141~orig.jpg" alt="Sojourner rover on Mars">
+                <div>
+                    <h3>First Successful Mars Rover</h3>
+                    <p>Sojourner demonstrated that a small mobile robot could explore the Martian surface and investigate rocks.</p>
+                </div>
+            </article>
+
+            <article class="discovery-card">
+                <img src="https://images-assets.nasa.gov/image/PIA00407/PIA00407~orig.jpg" alt="Mars Pathfinder landing site">
+                <div>
+                    <h3>Rock Investigations</h3>
+                    <p>Its instruments studied the composition of rocks and soil, helping scientists investigate the geological history of Mars.</p>
+                </div>
+            </article>
+
+            <article class="discovery-card">
+                <img src="https://images-assets.nasa.gov/image/PIA00779/PIA00779~orig.jpg" alt="Mars Pathfinder and Martian landscape">
+                <div>
+                    <h3>A New Era of Exploration</h3>
+                    <p>The Pathfinder mission helped establish technologies and methods that influenced later Mars rover missions.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="archive-section">
+        <span class="eyebrow">Beyond the Mission</span>
+        <h2>Small Rover. Enormous Legacy.</h2>
+        <p>
+            Sojourner proved that robotic vehicles could travel across
+            another planet, investigate its surface, and send valuable
+            scientific information back to Earth. Its success helped
+            pave the way for Spirit, Opportunity, Curiosity, and Perseverance.
+        </p>
+
+        <a href="index.html" class="back-link">← Return to Ghosts of Space</a>
+    </section>
+
+    <footer class="archive-footer">
+        <p>GHOSTS OF SPACE · Exploring the machines that explored our universe.</p>
+        <p>Mission information: NASA Mars Pathfinder mission archive.</p>
+    </footer>
+
+</body>
+</html>

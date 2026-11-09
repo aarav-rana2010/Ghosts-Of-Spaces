@@ -1,0 +1,1593 @@
+
+/* =================================
+   GHOSTS OF SPACE - MAIN DESIGN
+================================= */
+
+:root {
+    --background: #080b14;
+    --surface: #101625;
+    --surface-light: #171f31;
+    --white: #f4f5fa;
+    --muted: #9ba6ba;
+    --accent: #a68cff;
+    --border: rgba(255,255,255,0.10);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--background);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, .logo {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+/* NAVIGATION */
+
+/* PREMIUM GLASS NAVIGATION */
+
+.navbar {
+    height: 80px;
+    padding: 0 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(8, 11, 20, 0.78);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    transition:
+        background 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.navbar:hover {
+    background: rgba(8, 11, 20, 0.94);
+    border-bottom-color: rgba(245, 166, 35, 0.25);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.logo span:last-child {
+    color: var(--accent);
+}
+
+.logo-icon {
+    color: var(--accent);
+    margin-right: 5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    font-size: 13px;
+    color: var(--muted);
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.nav-button {
+    padding: 12px 20px;
+    background: var(--accent);
+    color: #101020;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    color: white;
+    border: none;
+    font-size: 25px;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 700px;
+    padding: 110px 10% 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 75% 45%, rgba(101,76,178,0.15), transparent 40%),
+        radial-gradient(ellipse at 15% 80%, rgba(49,84,143,0.10), transparent 40%);
+}
+
+.hero-content {
+    max-width: 610px;
+    position: relative;
+    z-index: 2;
+}
+
+.eyebrow, .section-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.live-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #74e6ad;
+    margin-right: 8px;
+    box-shadow: 0 0 12px #74e6ad;
+}
+
+.hero h1 {
+    font-size: clamp(50px, 7vw, 88px);
+    line-height: 1.02;
+    letter-spacing: -4px;
+    font-weight: 700;
+}
+
+.hero h1 span {
+    color: var(--accent);
+}
+
+.hero-description {
+    color: var(--muted);
+    line-height: 1.9;
+    font-size: 14px;
+    max-width: 460px;
+    margin: 30px 0;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.primary-button, .secondary-button {
+    display: inline-block;
+    padding: 15px 23px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.primary-button {
+    background: var(--accent);
+    color: #111020;
+}
+
+.primary-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(166,140,255,0.25);
+}
+
+.secondary-button {
+    border: 1px solid var(--border);
+    color: white;
+}
+
+.secondary-button:hover {
+    background: var(--surface-light);
+}
+
+.hero-stats {
+    display: flex;
+    gap: 45px;
+    margin-top: 65px;
+}
+
+.hero-stats div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.hero-stats strong {
+    font-size: 30px;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.hero-stats span {
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+/* PLANET VISUAL */
+
+.hero-visual {
+    width: 370px;
+    height: 370px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.planet {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    position: relative;
+    background:
+        radial-gradient(circle at 30% 25%, #b2a9c4, #55546b 40%, #22283b 75%, #101523);
+    box-shadow:
+        inset -30px -25px 60px #070912,
+        0 0 80px rgba(166,140,255,0.20);
+    animation: float 6s ease-in-out infinite;
+}
+
+.planet-crater {
+    position: absolute;
+    background: rgba(10,12,24,0.2);
+    border-radius: 50%;
+    box-shadow: inset 3px 3px 7px rgba(0,0,0,0.35);
+}
+
+.crater-one {
+    width: 40px;
+    height: 40px;
+    top: 65px;
+    left: 65px;
+}
+
+.crater-two {
+    width: 25px;
+    height: 25px;
+    top: 145px;
+    left: 160px;
+}
+
+.crater-three {
+    width: 18px;
+    height: 18px;
+    top: 42px;
+    left: 170px;
+}
+
+.orbit {
+    position: absolute;
+    border: 1px solid rgba(166,140,255,0.35);
+    border-radius: 50%;
+}
+
+.orbit-one {
+    width: 350px;
+    height: 150px;
+    transform: rotate(-25deg);
+}
+
+.orbit-two {
+    width: 390px;
+    height: 240px;
+    transform: rotate(35deg);
+    border-color: rgba(255,255,255,0.12);
+}
+
+.planet-label {
+    position: absolute;
+    bottom: -30px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.planet-label span {
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 2px;
+}
+
+.planet-label strong {
+    font-size: 11px;
+    color: var(--accent);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 25px;
+    left: 10%;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--muted);
+}
+
+/* INTRODUCTION */
+
+.intro-section {
+    padding: 110px 15%;
+    text-align: center;
+    background: #0d1220;
+}
+
+.intro-section h2, .section-heading h2 {
+    font-size: clamp(36px, 5vw, 58px);
+    letter-spacing: -2px;
+    line-height: 1.1;
+}
+
+.intro-section p {
+    max-width: 650px;
+    margin: 25px auto 0;
+    color: var(--muted);
+    line-height: 1.9;
+    font-size: 14px;
+}
+
+.intro-section .intro-highlight {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+/* EXPLORE SECTION */
+
+.explore-section, .missions-section {
+    padding: 110px 10%;
+}
+
+.section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 45px;
+}
+
+.section-heading > p {
+    max-width: 280px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.world-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.world-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.world-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--accent);
+}
+
+.world-art {
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.moon-art {
+    background:
+        radial-gradient(circle at 70% 30%, rgba(198,193,217,0.35), transparent 35%),
+        linear-gradient(135deg, #20243b, #080c19);
+}
+
+.mars-art {
+    background:
+        radial-gradient(circle at 70% 30%, rgba(238,111,77,0.35), transparent 35%),
+        linear-gradient(135deg, #382027, #100c19);
+}
+
+.world-symbol {
+    font-size: 130px;
+    opacity: 0.85;
+    text-shadow: 0 0 50px rgba(255,255,255,0.2);
+}
+
+.world-coordinate {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #d4d3e4;
+}
+
+.world-info {
+    padding: 30px;
+}
+
+.world-tag, .machine-location {
+    color: var(--accent);
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.world-info h3 {
+    font-size: 30px;
+    margin: 12px 0;
+}
+
+.world-info p, .machine-card p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.text-link {
+    display: inline-block;
+    margin-top: 22px;
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+/* MACHINES */
+
+.missions-section {
+    background: #0d1220;
+}
+
+.machine-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.machine-card {
+    background: var(--surface);
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.machine-card:hover {
+    transform: translateY(-6px);
+    background: var(--surface-light);
+    border-color: rgba(166,140,255,0.5);
+}
+
+.machine-number {
+    position: absolute;
+    top: 20px;
+    right: 23px;
+    font-size: 12px;
+    color: #566078;
+}
+
+.machine-icon {
+    font-size: 38px;
+    color: var(--accent);
+    margin-bottom: 25px;
+}
+
+.machine-card h3 {
+    font-size: 20px;
+    margin: 12px 0;
+}
+
+.story-button {
+    margin-top: 25px;
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.story-button:hover {
+    color: white;
+}
+
+/* LEGACY */
+
+.legacy-section {
+    padding: 120px 10%;
+    text-align: center;
+    background:
+        radial-gradient(ellipse at center, rgba(103,77,166,0.18), transparent 60%);
+}
+
+.legacy-section h2 {
+    font-size: clamp(35px, 5vw, 60px);
+    letter-spacing: -2px;
+    line-height: 1.2;
+    margin: 20px 0;
+}
+
+.legacy-section h2 span {
+    color: var(--accent);
+}
+
+.legacy-section p {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 20px 0 35px;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 55px 10%;
+    text-align: center;
+    border-top: 1px solid var(--border);
+}
+
+footer p {
+    color: var(--muted);
+    font-size: 12px;
+    margin: 15px 0;
+}
+
+.footer-note {
+    max-width: 500px;
+    margin: 15px auto !important;
+    line-height: 1.8;
+}
+
+footer > span {
+    display: block;
+    font-size: 9px;
+    color: #69738a;
+    letter-spacing: 2px;
+    margin-top: 30px;
+}
+
+/* MODAL */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 550px;
+    background: var(--surface);
+    padding: 45px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    position: relative;
+}
+
+.modal-content h2 {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.modal-content p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    color: white;
+    border: none;
+    font-size: 30px;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 900px) {
+    .hero {
+        padding: 90px 7%;
+    }
+
+    .hero-visual {
+        width: 280px;
+        height: 280px;
+    }
+
+    .planet {
+        width: 200px;
+        height: 200px;
+    }
+
+    .machine-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .navbar {
+        padding: 0 5%;
+    }
+}
+
+@media (max-width: 650px) {
+    .navbar {
+        height: 70px;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        padding: 25px;
+        background: var(--surface);
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-button {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero {
+        padding: 75px 7% 100px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero h1 {
+        font-size: 54px;
+        letter-spacing: -3px;
+    }
+
+    .hero-visual {
+        align-self: center;
+        margin-top: 65px;
+    }
+
+    .hero-stats {
+        gap: 25px;
+    }
+
+    .hero-stats strong {
+        font-size: 24px;
+    }
+
+    .intro-section {
+        padding: 80px 8%;
+    }
+
+    .explore-section, .missions-section {
+        padding: 80px 7%;
+    }
+
+    .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .world-grid, .machine-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .legacy-section {
+        padding: 90px 7%;
+    }
+
+    .modal-content {
+        padding: 35px 25px;
+    }
+}
+
+
+/* ===================================
+   STAGE 2 - PLANETARY EXPLORER
+=================================== */
+
+.planet-explorer {
+    padding: 110px 10%;
+    background:
+        radial-gradient(ellipse at 50% 40%,
+        rgba(94,70,160,0.12), transparent 65%);
+}
+
+.explorer-container {
+    background: #101625;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 40px;
+}
+
+.explorer-topbar {
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    gap: 20px;
+}
+
+.explorer-small-label {
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.explorer-topbar h3 {
+    font-size: 25px;
+}
+
+.planet-switch {
+    display: flex;
+    gap: 8px;
+    background: #080d19;
+    padding: 5px;
+    border-radius: 6px;
+}
+
+.planet-btn {
+    background: transparent;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 4px;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.planet-btn.active {
+    background: var(--accent);
+    color: #111020;
+}
+
+.map-layout {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    min-height: 450px;
+}
+
+.map-wrapper {
+    position: relative;
+    min-width: 0;
+    background: #080d19;
+}
+
+#planetMap {
+    height: 450px;
+    width: 100%;
+    background: #111827;
+    z-index: 1;
+}
+
+.map-overlay {
+    position: absolute;
+    z-index: 500;
+    top: 15px;
+    left: 15px;
+    background: rgba(8,11,20,0.88);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 12px;
+    font-size: 9px;
+    letter-spacing: 1px;
+    pointer-events: none;
+}
+
+.mission-panel {
+    padding: 35px 25px;
+    border-left: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+}
+
+#missionDetails h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 23px;
+    margin: 18px 0 12px;
+}
+
+#missionDetails p {
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--muted);
+}
+
+#missionDetails .mission-location {
+    color: var(--accent);
+    font-size: 9px;
+    letter-spacing: 2px;
+    margin-top: 15px;
+}
+
+.empty-state-icon {
+    font-size: 55px;
+    color: var(--accent);
+    margin-top: 35px;
+}
+
+.mission-legend {
+    margin-top: auto;
+    padding-top: 25px;
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.legend-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #b29aff;
+    border-radius: 50%;
+    margin-right: 7px;
+}
+
+.map-footer {
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    color: #8791a5;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.leaflet-container {
+    font-family: 'DM Sans', sans-serif;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+    background: #101625;
+    color: white;
+}
+
+.leaflet-popup-content {
+    font-size: 12px;
+}
+
+.leaflet-popup-content strong {
+    color: var(--accent);
+}
+
+/* MOBILE */
+
+@media(max-width: 800px) {
+    .planet-explorer {
+        padding: 80px 7%;
+    }
+
+    .map-layout {
+        grid-template-columns: 1fr;
+    }
+
+    #planetMap {
+        height: 380px;
+    }
+
+    .mission-panel {
+        border-left: none;
+        border-top: 1px solid var(--border);
+        min-height: 260px;
+    }
+
+    .explorer-topbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .map-footer {
+        flex-direction: column;
+    }
+}
+
+/* =====================================
+   STAGE 4.1 - CINEMATIC LOADING SCREEN
+===================================== */
+
+#loadingScreen {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background:
+        radial-gradient(ellipse at center, #14233e 0%, #080e1c 48%, #02040a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    animation: loadingExit 0.6s ease 1.5s forwards;
+}
+
+.loading-stars {
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(2px 2px at 20% 30%, white 50%, transparent 100%),
+        radial-gradient(1px 1px at 70% 20%, white 50%, transparent 100%),
+        radial-gradient(2px 2px at 85% 65%, #91bfff 50%, transparent 100%),
+        radial-gradient(1px 1px at 35% 80%, white 50%, transparent 100%),
+        radial-gradient(2px 2px at 55% 45%, white 50%, transparent 100%);
+    background-size: 250px 250px;
+    opacity: 0;
+    animation: starReveal 2s ease forwards;
+}
+
+.loading-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+    animation: contentReveal 1.5s ease forwards;
+}
+
+.loading-symbol {
+    font-size: 48px;
+    color: #f5a623;
+    margin-bottom: 20px;
+    animation: symbolGlow 2s infinite alternate;
+}
+
+.loading-content h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    color: white;
+    font-size: clamp(32px, 7vw, 65px);
+    letter-spacing: 7px;
+    margin: 0;
+}
+
+.loading-content h1 span {
+    color: #f5a623;
+}
+
+.loading-content p {
+    color: #a9b8d0;
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-top: 18px;
+}
+
+.loading-line {
+    width: min(280px, 70vw);
+    height: 3px;
+    background: #26354d;
+    margin: 35px auto 15px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.loading-progress {
+    width: 0%;
+    height: 100%;
+    background: #f5a623;
+    box-shadow: 0 0 15px #f5a623;
+    animation: loadingProgress 4s ease forwards;
+}
+
+.loading-text {
+    color: #71839f;
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+@keyframes starReveal {
+    to { opacity: 1; }
+}
+
+@keyframes contentReveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes symbolGlow {
+    from { text-shadow: 0 0 5px #f5a623; }
+    to { text-shadow: 0 0 30px #f5a623; }
+}
+
+@keyframes loadingProgress {
+    to { width: 100%; }
+}
+
+@keyframes loadingExit {
+    to {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+}
+
+/* =====================================
+   STAGE 4.2 - DISCOVERY STATISTICS
+===================================== */
+
+.discovery-stats {
+    padding: 120px 8%;
+    background:
+        radial-gradient(ellipse at 50% 50%, #14233b 0%, #080e1b 65%, #050914 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.discovery-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+    margin: 35px 0 60px;
+}
+
+.discovery-heading h2 {
+    color: white;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(38px, 6vw, 65px);
+    line-height: 1.05;
+}
+
+.discovery-heading p {
+    color: #aab8ce;
+    max-width: 350px;
+    line-height: 1.8;
+}
+
+.discovery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.discovery-card {
+    padding: 38px 30px;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 18px;
+    transition: 0.35s ease;
+}
+
+.discovery-card:hover {
+    transform: translateY(-10px);
+    border-color: #f5a623;
+    background: rgba(245, 166, 35, 0.06);
+}
+
+.discovery-icon {
+    display: block;
+    color: #f5a623;
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+.discovery-card strong {
+    display: block;
+    color: #f5a623;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 55px;
+    margin-bottom: 12px;
+}
+
+.discovery-card h3 {
+    color: white;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.discovery-card p {
+    color: #9baac0;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 768px) {
+
+    .discovery-stats {
+        padding: 80px 6%;
+    }
+
+    .discovery-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .discovery-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* =====================================
+   STAGE 4.3 - SCIENTIFIC DISCOVERIES
+===================================== */
+
+.discoveries-section {
+    padding: 120px 8%;
+    background:
+        radial-gradient(ellipse at top right, #172744 0%, #080e1b 55%, #040812 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.discoveries-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+    margin: 35px 0 60px;
+}
+
+.discoveries-heading h2 {
+    color: #fff;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(35px, 5.5vw, 62px);
+    line-height: 1.08;
+}
+
+.discoveries-heading p {
+    color: #aab8ce;
+    max-width: 360px;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.discoveries-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.discoveries-grid .discovery-card {
+    position: relative;
+    padding: 35px;
+    min-height: 330px;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 18px;
+    transition: 0.35s ease;
+}
+
+.discoveries-grid .discovery-card:hover {
+    transform: translateY(-8px);
+    border-color: #f5a623;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.discovery-top {
+    display: flex;
+    justify-content: space-between;
+    color: #91a4c0;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.discovery-top span:last-child {
+    color: #f5a623;
+    font-size: 20px;
+}
+
+.discovery-symbol {
+    font-size: 36px;
+    margin: 30px 0 20px;
+    color: #f5a623;
+}
+
+.discoveries-grid .discovery-card h3 {
+    color: white;
+    font-size: 17px;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+}
+
+.discoveries-grid .discovery-card p {
+    color: #aab8ce;
+    font-size: 13px;
+    line-height: 1.9;
+    margin-bottom: 25px;
+}
+
+.discovery-link {
+    display: inline-block;
+    color: #f5a623;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.discovery-link:hover {
+    color: white;
+    letter-spacing: 2px;
+}
+
+.discoveries-footer {
+    margin-top: 55px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    color: #8192ac;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 768px) {
+
+    .discoveries-section {
+        padding: 80px 6%;
+    }
+
+    .discoveries-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .discoveries-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .discoveries-grid .discovery-card {
+        min-height: auto;
+        padding: 28px;
+    }
+
+    .discoveries-footer {
+        line-height: 2;
+    }
+
+}
+
+/* =====================================
+   STAGE 4.4 - MISSION RESEARCH LIBRARY
+===================================== */
+
+.research-section {
+    padding: 120px 8%;
+    background:
+        radial-gradient(ellipse at bottom left, #172744 0%, #080e1b 60%, #040812 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.research-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+    margin: 35px 0 60px;
+}
+
+.research-heading h2 {
+    color: white;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(35px, 5.5vw, 62px);
+    line-height: 1.08;
+}
+
+.research-heading p {
+    color: #aab8ce;
+    max-width: 360px;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.research-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.research-card {
+    padding: 35px;
+    min-height: 310px;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 18px;
+    transition: 0.35s ease;
+}
+
+.research-card:hover {
+    transform: translateY(-8px);
+    border-color: #f5a623;
+    background: rgba(245, 166, 35, 0.05);
+}
+
+.research-category {
+    color: #91a4c0;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.research-icon {
+    color: #f5a623;
+    font-size: 36px;
+    margin: 28px 0 18px;
+}
+
+.research-card h3 {
+    color: white;
+    font-size: 19px;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+}
+
+.research-card p {
+    color: #aab8ce;
+    font-size: 13px;
+    line-height: 1.9;
+    margin-bottom: 25px;
+}
+
+.research-card a {
+    display: inline-block;
+    color: #f5a623;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.research-card a:hover {
+    color: white;
+    letter-spacing: 2px;
+}
+
+.research-note {
+    margin-top: 50px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    color: #8192ac;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 768px) {
+
+    .research-section {
+        padding: 80px 6%;
+    }
+
+    .research-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .research-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .research-card {
+        min-height: auto;
+        padding: 28px;
+    }
+
+    .research-note {
+        line-height: 2;
+    }
+
+}
+
+/* =====================================
+   STAGE 4.5 - SCROLL REVEAL ANIMATION
+===================================== */
+
+.reveal-section {
+    opacity: 0;
+    transform: translateY(45px);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+.reveal-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal-section {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* =====================================
+   STAGE 4.5 - CARD ENTRANCE ANIMATIONS
+===================================== */
+
+.discovery-grid .discovery-card,
+.discoveries-grid .discovery-card,
+.research-grid .research-card {
+    animation: cardFloatIn 0.8s ease both;
+}
+
+@keyframes cardFloatIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =====================================
+   STAGE 4.5 - STAGGERED SCROLL REVEALS
+===================================== */
+
+.discovery-grid .discovery-card,
+.discoveries-grid .discovery-card,
+.research-grid .research-card {
+    animation: none;
+    opacity: 0;
+    transform: translateY(25px);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.reveal-section.visible .discovery-grid .discovery-card,
+.reveal-section.visible .discoveries-grid .discovery-card,
+.reveal-section.visible .research-grid .research-card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.discovery-grid .discovery-card:nth-child(2),
+.discoveries-grid .discovery-card:nth-child(2),
+.research-grid .research-card:nth-child(2) {
+    transition-delay: 0.12s;
+}
+
+.discovery-grid .discovery-card:nth-child(3),
+.discoveries-grid .discovery-card:nth-child(3),
+.research-grid .research-card:nth-child(3) {
+    transition-delay: 0.24s;
+}
+
+.discoveries-grid .discovery-card:nth-child(4),
+.research-grid .research-card:nth-child(4) {
+    transition-delay: 0.36s;
+}
+
+.discoveries-grid .discovery-card:nth-child(5) {
+    transition-delay: 0.48s;
+}
+
+/* =====================================
+   FIX - RESTORE EMPTY SECTIONS
+===================================== */
+
+.discovery-stats,
+.discoveries-section,
+.research-section {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+}
+
+.discovery-grid .discovery-card,
+.discoveries-grid .discovery-card,
+.research-grid .research-card {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    animation: none !important;
+}
+
+/* =====================================
+   STAGE 4.5 - PREMIUM CARD HOVER EFFECTS
+===================================== */
+
+.discoveries-grid .discovery-card,
+.research-grid .research-card {
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+}
+
+.discoveries-grid .discovery-card:hover,
+.research-grid .research-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(245, 166, 35, 0.8);
+    box-shadow: 0 15px 40px rgba(245, 166, 35, 0.08);
+    background: rgba(245, 166, 35, 0.055);
+}
+
+.discovery-link,
+.research-card a {
+    transition: color 0.3s ease, letter-spacing 0.3s ease;
+}
+
+.discovery-link:hover,
+.research-card a:hover {
+    color: white;
+    letter-spacing: 2px;
+}

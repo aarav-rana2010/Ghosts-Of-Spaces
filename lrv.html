@@ -1,0 +1,785 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lunar Roving Vehicle | Ghosts of Space</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --gold: #e9ad55;
+    --gold-light: #ffd18a;
+    --bg: #080c16;
+    --panel: #111827;
+    --muted: #aab2c2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: #f4f5f8;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 17px;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+.back-link {
+    color: #e4e7ed;
+    font-size: 13px;
+    border: 1px solid #ffffff40;
+    padding: 9px 17px;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.back-link:hover {
+    background: var(--gold);
+    color: #10131b;
+    border-color: var(--gold);
+}
+
+.hero {
+    min-height: 90vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 140px 10% 90px;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 75% 45%, #71502c55, transparent 35%),
+        linear-gradient(115deg, #080c16 20%, #18202b 65%, #34291e);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("https://images-assets.nasa.gov/image/as15-86-11603/as15-86-11603~orig.jpg");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.32;
+    mix-blend-mode: screen;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #080c16 5%, #080c16d9 45%, #080c1640);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 750px;
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(42px, 7vw, 83px);
+    line-height: 1.12;
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: var(--gold);
+}
+
+.hero p {
+    color: #c3c9d4;
+    max-width: 590px;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.hero-button {
+    display: inline-block;
+    background: var(--gold);
+    color: #141414;
+    padding: 13px 24px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.hero-button:hover {
+    background: var(--gold-light);
+    transform: translateY(-3px);
+}
+
+.hero-tag {
+    margin-top: 28px;
+    color: #aeb6c4;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+section {
+    padding: 90px 10%;
+}
+
+.section-label {
+    color: var(--gold);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-bottom: 13px;
+}
+
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(26px, 4vw, 39px);
+    margin-bottom: 22px;
+    line-height: 1.3;
+}
+
+.section-intro {
+    color: var(--muted);
+    max-width: 720px;
+    margin-bottom: 38px;
+    font-size: 15px;
+}
+
+.overview {
+    background: #0b101b;
+}
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.overview-copy p {
+    color: var(--muted);
+    margin-bottom: 18px;
+    font-size: 14px;
+}
+
+.image-panel {
+    min-height: 330px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    background:
+        radial-gradient(circle at 50% 45%, #8b704b 0%, #4b4034 23%, #1b2029 65%, #0b101b 100%);
+    border: 1px solid #ffffff20;
+}
+
+.image-panel img {
+    width: 100%;
+    height: 100%;
+    min-height: 330px;
+    object-fit: cover;
+    display: block;
+}
+
+.image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 25px 18px 15px;
+    background: linear-gradient(transparent, #080c16e8);
+    font-size: 11px;
+    color: #e0e3e9;
+    letter-spacing: 1px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 45px;
+}
+
+.stat-card {
+    background: var(--panel);
+    border: 1px solid #ffffff12;
+    padding: 25px 18px;
+    border-radius: 9px;
+}
+
+.stat-card h3 {
+    color: var(--gold);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 27px;
+    margin-bottom: 7px;
+}
+
+.stat-card p {
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.engineering {
+    background: #101725;
+}
+
+.engineering-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.engineering-card {
+    background: #151f30;
+    border: 1px solid #ffffff12;
+    padding: 28px 24px;
+    border-radius: 9px;
+    transition: 0.3s;
+}
+
+.engineering-card:hover {
+    transform: translateY(-5px);
+    border-color: #e9ad5570;
+}
+
+.card-number {
+    color: var(--gold);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    margin-bottom: 17px;
+}
+
+.engineering-card h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.engineering-card p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.missions {
+    background: #0b101b;
+}
+
+.mission-list {
+    display: grid;
+    gap: 17px;
+}
+
+.mission-card {
+    display: grid;
+    grid-template-columns: 125px 1fr auto;
+    gap: 25px;
+    align-items: center;
+    padding: 25px;
+    background: #111827;
+    border: 1px solid #ffffff12;
+    border-radius: 9px;
+}
+
+.mission-year {
+    color: var(--gold);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 22px;
+}
+
+.mission-card h3 {
+    margin-bottom: 6px;
+    font-size: 17px;
+}
+
+.mission-card p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.distance {
+    text-align: right;
+    color: var(--gold-light);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 17px;
+    white-space: nowrap;
+}
+
+.distance small {
+    display: block;
+    color: var(--muted);
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    margin-top: 4px;
+}
+
+.specifications {
+    background: #101725;
+}
+
+.spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #151f30;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.spec-table td {
+    padding: 17px 22px;
+    border-bottom: 1px solid #ffffff12;
+    font-size: 13px;
+}
+
+.spec-table td:first-child {
+    color: var(--gold);
+    width: 42%;
+    font-weight: 600;
+}
+
+.spec-table td:last-child {
+    color: #d0d5df;
+}
+
+.spec-table tr:last-child td {
+    border-bottom: none;
+}
+
+.legacy {
+    background:
+        radial-gradient(ellipse at 80% 20%, #59432940, transparent 40%),
+        #090e18;
+    text-align: center;
+}
+
+.legacy-content {
+    max-width: 780px;
+    margin: auto;
+}
+
+.legacy-content p {
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 18px;
+}
+
+.quote {
+    color: var(--gold-light);
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(19px, 3vw, 28px);
+    line-height: 1.6;
+    margin: 35px 0;
+}
+
+footer {
+    background: #060911;
+    padding: 30px 10%;
+    text-align: center;
+    color: #8992a2;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+footer a {
+    color: var(--gold);
+}
+
+@media (max-width: 800px) {
+    .overview-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .engineering-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mission-card {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .distance {
+        text-align: left;
+    }
+}
+
+@media (max-width: 520px) {
+    nav {
+        padding: 20px 5%;
+    }
+
+    .logo {
+        font-size: 12px;
+    }
+
+    section {
+        padding: 65px 7%;
+    }
+
+    .hero {
+        padding: 130px 7% 75px;
+    }
+
+    .engineering-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .spec-table td {
+        padding: 13px 12px;
+        font-size: 11px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html" class="logo">GHOSTS <span>OF SPACE</span></a>
+    <a href="index.html" class="back-link">← BACK TO EXPLORER</a>
+</nav>
+
+<header class="hero">
+    <div class="hero-content">
+        <div class="eyebrow">APOLLO PROGRAM • 1971–1972</div>
+        <h1>THE LUNAR<br><span>ROVING</span> VEHICLE</h1>
+        <p>
+            Humanity's first crew-driven vehicle on the Moon.
+            A remarkable machine that transformed lunar exploration
+            and allowed astronauts to travel farther than ever before.
+        </p>
+        <a href="#overview" class="hero-button">EXPLORE THE ROVER ↓</a>
+        <div class="hero-tag">THREE MISSIONS. ONE EXTRAORDINARY MACHINE.</div>
+    </div>
+</header>
+
+<section class="overview" id="overview">
+    <div class="overview-grid">
+        <div class="overview-copy">
+            <div class="section-label">01 / THE MACHINE</div>
+            <h2 class="section-title">A CAR BUILT FOR ANOTHER WORLD</h2>
+
+            <p>
+                The Lunar Roving Vehicle, commonly known as the LRV,
+                was a lightweight, battery-powered vehicle developed
+                for NASA's Apollo missions. It was designed to carry
+                two astronauts across the Moon's challenging terrain.
+            </p>
+
+            <p>
+                Before the rover, astronauts had to explore the lunar
+                surface on foot. The LRV dramatically expanded their
+                range, allowing them to visit more geological locations,
+                transport scientific equipment and collect lunar samples.
+            </p>
+
+            <p>
+                Built by Boeing, the rover had to be folded into a
+                compact package inside the Lunar Module. Once on the
+                Moon, astronauts unfolded and deployed it by hand.
+            </p>
+        </div>
+
+        <div class="image-panel">
+            <img
+                src="https://images-assets.nasa.gov/image/as15-86-11603/as15-86-11603~orig.jpg"
+                alt="Apollo Lunar Roving Vehicle on the Moon"
+                onerror="this.style.display='none';"
+            >
+            <div class="image-caption">
+                APOLLO LUNAR ROVING VEHICLE • NASA
+            </div>
+        </div>
+    </div>
+
+    <div class="stats">
+        <div class="stat-card">
+            <h3>3</h3>
+            <p>Lunar missions</p>
+        </div>
+        <div class="stat-card">
+            <h3>4</h3>
+            <p>Independently driven wheels</p>
+        </div>
+        <div class="stat-card">
+            <h3>210 kg</h3>
+            <p>Approx. vehicle mass</p>
+        </div>
+        <div class="stat-card">
+            <h3>35.9 km</h3>
+            <p>Longest mission distance</p>
+        </div>
+    </div>
+</section>
+
+<section class="engineering">
+    <div class="section-label">02 / ENGINEERING</div>
+    <h2 class="section-title">ENGINEERED FOR THE MOON</h2>
+    <p class="section-intro">
+        The LRV was not an ordinary electric car. Every major component
+        had to work in a vacuum, under low gravity and across an
+        unfamiliar, dusty landscape.
+    </p>
+
+    <div class="engineering-grid">
+        <div class="engineering-card">
+            <div class="card-number">01 — POWER</div>
+            <h3>Battery-Powered Mobility</h3>
+            <p>
+                Two 36-volt silver-zinc batteries supplied electrical
+                power. The rover did not need fuel or an internal
+                combustion engine.
+            </p>
+        </div>
+
+        <div class="engineering-card">
+            <div class="card-number">02 — WHEELS</div>
+            <h3>Wire-Mesh Wheels</h3>
+            <p>
+                Flexible wire-mesh tires with titanium tread elements
+                provided traction on lunar soil without conventional
+                rubber pneumatic tires.
+            </p>
+        </div>
+
+        <div class="engineering-card">
+            <div class="card-number">03 — DRIVE</div>
+            <h3>Four Electric Motors</h3>
+            <p>
+                Each wheel had its own electric drive motor, giving
+                the rover four-wheel powered mobility.
+            </p>
+        </div>
+
+        <div class="engineering-card">
+            <div class="card-number">04 — STEERING</div>
+            <h3>Four-Wheel Steering</h3>
+            <p>
+                Separate front and rear steering systems helped the
+                vehicle turn in the restricted space around the
+                lunar landing sites.
+            </p>
+        </div>
+
+        <div class="engineering-card">
+            <div class="card-number">05 — CONTROL</div>
+            <h3>A Hand Controller</h3>
+            <p>
+                Astronauts operated the rover using a central hand
+                controller rather than a conventional steering wheel.
+            </p>
+        </div>
+
+        <div class="engineering-card">
+            <div class="card-number">06 — COMMUNICATION</div>
+            <h3>Antennas and Cameras</h3>
+            <p>
+                Communication equipment and a television camera
+                helped transmit information and images back to Earth.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="missions">
+    <div class="section-label">03 / LUNAR JOURNEYS</div>
+    <h2 class="section-title">THREE MISSIONS. THREE ROVERS.</h2>
+    <p class="section-intro">
+        The Lunar Roving Vehicle flew on the final three crewed
+        Apollo lunar landing missions. Each mission used its rover
+        to explore a different region of the Moon.
+    </p>
+
+    <div class="mission-list">
+        <div class="mission-card">
+            <div class="mission-year">1971</div>
+            <div>
+                <h3>Apollo 15 — The First Drive</h3>
+                <p>
+                    Astronauts David Scott and James Irwin became
+                    the first humans to drive a vehicle on the Moon.
+                    Their rover explored the Hadley–Apennine region.
+                </p>
+            </div>
+            <div class="distance">
+                27.8 km
+                <small>TOTAL DISTANCE</small>
+            </div>
+        </div>
+
+        <div class="mission-card">
+            <div class="mission-year">1972</div>
+            <div>
+                <h3>Apollo 16 — Exploring Descartes</h3>
+                <p>
+                    John Young and Charles Duke used the rover
+                    to investigate the lunar highlands and collect
+                    geological samples.
+                </p>
+            </div>
+            <div class="distance">
+                26.7 km
+                <small>TOTAL DISTANCE</small>
+            </div>
+        </div>
+
+        <div class="mission-card">
+            <div class="mission-year">1972</div>
+            <div>
+                <h3>Apollo 17 — The Final Journey</h3>
+                <p>
+                    Eugene Cernan and Harrison Schmitt drove the
+                    final Apollo lunar rover in the Taurus–Littrow
+                    valley. It covered the greatest distance of
+                    the three missions.
+                </p>
+            </div>
+            <div class="distance">
+                35.9 km
+                <small>TOTAL DISTANCE</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="specifications">
+    <div class="section-label">04 / TECHNICAL DATA</div>
+    <h2 class="section-title">INSIDE THE NUMBERS</h2>
+    <p class="section-intro">
+        A compact vehicle with an extraordinary engineering
+        achievement behind it.
+    </p>
+
+    <table class="spec-table">
+        <tr>
+            <td>Full name</td>
+            <td>Lunar Roving Vehicle (LRV)</td>
+        </tr>
+        <tr>
+            <td>Manufacturer</td>
+            <td>Boeing</td>
+        </tr>
+        <tr>
+            <td>Mission use</td>
+            <td>Apollo 15, Apollo 16 and Apollo 17</td>
+        </tr>
+        <tr>
+            <td>Length</td>
+            <td>Approximately 3.1 metres</td>
+        </tr>
+        <tr>
+            <td>Wheelbase</td>
+            <td>Approximately 2.3 metres</td>
+        </tr>
+        <tr>
+            <td>Height</td>
+            <td>Approximately 1.14 metres</td>
+        </tr>
+        <tr>
+            <td>Vehicle mass</td>
+            <td>Approximately 210 kg</td>
+        </tr>
+        <tr>
+            <td>Power source</td>
+            <td>Two 36-volt silver-zinc batteries</td>
+        </tr>
+        <tr>
+            <td>Drive system</td>
+            <td>Four electric wheel motors</td>
+        </tr>
+        <tr>
+            <td>Operating crew</td>
+            <td>Two astronauts</td>
+        </tr>
+    </table>
+</section>
+
+<section class="legacy">
+    <div class="legacy-content">
+        <div class="section-label">05 / THE LEGACY</div>
+        <h2 class="section-title">THE WHEELS THAT CHANGED LUNAR EXPLORATION</h2>
+
+        <p>
+            The Lunar Roving Vehicle changed what astronauts could
+            accomplish on the Moon. It helped them explore a wider
+            area, carry more equipment and bring back valuable
+            geological samples.
+        </p>
+
+        <p>
+            Although the Apollo programme ended, the engineering
+            lessons from the LRV remain part of the story of
+            planetary mobility and future lunar exploration.
+        </p>
+
+        <div class="quote">
+            "A small vehicle. A giant leap in exploration."
+        </div>
+
+        <a href="index.html" class="hero-button">RETURN TO GHOSTS OF SPACE ↑</a>
+    </div>
+</section>
+
+<footer>
+    <p>GHOSTS OF SPACE • LUNAR ROVING VEHICLE ARCHIVE</p>
+    <p style="margin-top: 9px;">
+        Historical information:
+        <a href="https://nssdc.gsfc.nasa.gov/planetary/lunar/apollo_lrv.html" target="_blank">NASA NSSDC</a>
+        •
+        <a href="https://www.nasa.gov/specials/apollo50th/missions.html" target="_blank">NASA Apollo Missions</a>
+    </p>
+</footer>
+
+</body>
+</html>
