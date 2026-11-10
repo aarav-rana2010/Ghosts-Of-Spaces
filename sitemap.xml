@@ -1,33 +1,25 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-    <url>
-        <loc>https://aarav-rana2010.github.io/Ghosts-Of-Spaces/</loc>
-    </url>
-
-    <url>
-        <loc>https://aarav-rana2010.github.io/Ghosts-Of-Spaces/about.html</loc>
-    </url>
-
-    <url>
-        <loc>https://aarav-rana2010.github.io/Ghosts-Of-Spaces/opportunity.html</loc>
-    </url>
-
-    <url>
-        <loc>https://aarav-rana2010.github.io/Ghosts-Of-Spaces/spirit.html</loc>
-    </url>
-
-    <url>
-        <loc>https://aarav-rana2010.github.io/Ghosts-Of-Spaces/sojourner.html</loc>
-    </url>
-
-    <url>
-        <loc>https://aarav-rana2010.github.io/Ghosts-Of-Spaces/surveyor.html</loc>
-    </url>
-
-    <url>
-        <loc>https://aarav-rana2010.github.io/Ghosts-Of-Spaces/lrv.html</loc>
-    </url>
-
+  <url>
+    <loc>https://aarav-rana2010.github.io/Ghosts-Of-Spaces/</loc>
+  </url>
+  <url>
+    <loc>https://aarav-rana2010.github.io/Ghosts-Of-Spaces/about.html</loc>
+  </url>
+  <url>
+    <loc>https://aarav-rana2010.github.io/Ghosts-Of-Spaces/opportunity.html</loc>
+  </url>
+  <url>
+    <loc>https://aarav-rana2010.github.io/Ghosts-Of-Spaces/spirit.html</loc>
+  </url>
+  <url>
+    <loc>https://aarav-rana2010.github.io/Ghosts-Of-Spaces/sojourner.html</loc>
+  </url>
+  <url>
+    <loc>https://aarav-rana2010.github.io/Ghosts-Of-Spaces/surveyor.html</loc>
+  </url>
+  <url>
+    <loc>https://aarav-rana2010.github.io/Ghosts-Of-Spaces/lrv.html</loc>
+  </url>
 </urlset>
+
