@@ -1,0 +1,5 @@
+
+User-agent: *
+Allow: /
+
+Sitemap: https://aarav-rana2010.github.io/Ghosts-Of-Spaces/sitemap.xml
